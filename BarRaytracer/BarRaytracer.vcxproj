@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6F1A0878-ACA9-47B6-BCA2-98698FF0BC25}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>D3D11Test</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;d3dx11d.lib;DxErr.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>d3d11.lib;d3dx11d.lib;DxErr.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\App\App.cpp" />
+    <ClCompile Include="Source\App\Logger.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Math\Math.cpp" />
+    <ClCompile Include="Source\RaytracerApp\RaytracerApp.cpp" />
+    <ClCompile Include="Source\RaytracerApp\Scenes\Scene1.cpp" />
+    <ClCompile Include="Source\Raytracer\Raytracer.cpp" />
+    <ClCompile Include="Source\Raytracer\SceneNode.cpp" />
+    <ClCompile Include="Source\Renderer\DX11Renderer\Renderer.cpp" />
+    <ClCompile Include="Source\Renderer\DX11Renderer\ResourceManager.cpp" />
+    <ClCompile Include="Source\Renderer\Resources\Shaders.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\App\App.h" />
+    <ClInclude Include="Source\Math\Matrix4x4.h" />
+    <ClInclude Include="Source\Math\Vec2.h" />
+    <ClInclude Include="Source\Math\Vec3.h" />
+    <ClInclude Include="Source\Math\Vec4.h" />
+    <ClInclude Include="Source\RaytracerApp\Scenes\Scene1.h" />
+    <ClInclude Include="Source\App\Interfaces\IInputListener.h" />
+    <ClInclude Include="Source\App\Common.h" />
+    <ClInclude Include="Source\App\Logger.h" />
+    <ClInclude Include="Source\Renderer\Interfaces\IRenderer.h" />
+    <ClInclude Include="Source\Renderer\Interfaces\IResource.h" />
+    <ClInclude Include="Source\Renderer\Interfaces\IResourceManager.h" />
+    <ClInclude Include="Source\IResource.h" />
+    <ClInclude Include="Source\Math\Math.h" />
+    <ClInclude Include="Source\RaytracerApp\RaytracerApp.h" />
+    <ClInclude Include="Source\Raytracer\Camera.h" />
+    <ClInclude Include="Source\Raytracer\Objects.h" />
+    <ClInclude Include="Source\Raytracer\Raytracer.h" />
+    <ClInclude Include="Source\Raytracer\Scene.h" />
+    <ClInclude Include="Source\Raytracer\SceneNode.h" />
+    <ClInclude Include="Source\Raytracer\ShaderDTO.h" />
+    <ClInclude Include="Source\Renderer\DX11Renderer\Renderer.h" />
+    <ClInclude Include="Source\Renderer\DX11Renderer\ResourceManager.h" />
+    <ClInclude Include="Source\Renderer\Resources\Buffers.h" />
+    <ClInclude Include="Source\Renderer\Resources\Shaders.h" />
+    <ClInclude Include="Source\Resources.h" />
+    <ClInclude Include="Source\Renderer\Resources\VertexLayout.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,11 @@
+
+*.sdf
+*.suo
+*.db
+ipch/*
+Debug/*
+Release/*
+BarRaytracer/Debug/*
+BarRaytracer/Release/*
+*.VC.db
+*.VC.opendb
